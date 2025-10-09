@@ -47,16 +47,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        glass: {
+          DEFAULT: "hsl(var(--glass-bg) / 0.3)",
+          border: "hsl(var(--glass-border) / 0.2)",
         },
+      },
+      backgroundImage: {
+        'weather-gradient': 'linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-mid)), hsl(var(--gradient-end)))',
+        'glass-shine': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+      },
+      backdropBlur: {
+        glass: '20px',
+      },
+      boxShadow: {
+        glass: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+        glow: '0 0 20px rgba(255, 215, 0, 0.3)',
       },
       borderRadius: {
         lg: "var(--radius)",
