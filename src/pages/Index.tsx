@@ -250,6 +250,16 @@ const Index = () => {
       {/* Welcome Screen */}
       {showWelcome && !weatherData && (
         <div className="min-h-screen flex flex-col items-center justify-center p-6">
+          {/* Settings Icon */}
+          <div className="absolute top-6 right-6">
+            <Settings
+              apiKey={apiKey}
+              onApiKeyChange={setApiKey}
+              tempUnit={tempUnit}
+              onTempUnitChange={setTempUnit}
+            />
+          </div>
+          
           <div className="max-w-md w-full text-center space-y-8">
             <img
               src={weatherHero}
