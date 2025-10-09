@@ -23,8 +23,8 @@ const getWeatherIcon = (condition: string) => {
 
 const DailyForecast = ({ dailyData }: DailyForecastProps) => {
   return (
-    <div className="relative">
-      <div className="absolute inset-0 bg-glass border border-glass-border rounded-3xl backdrop-blur-glass shadow-glass" />
+    <div className="relative animate-fade-in">
+      <div className="absolute inset-0 bg-glass border border-glass-border rounded-3xl backdrop-blur-glass shadow-glass hover:shadow-2xl transition-shadow" />
       <div className="relative p-6">
         <h2 className="text-lg font-semibold mb-4 text-foreground">7-Day Forecast</h2>
         <div className="space-y-3">
@@ -33,14 +33,14 @@ const DailyForecast = ({ dailyData }: DailyForecastProps) => {
             return (
               <div
                 key={index}
-                className="flex items-center justify-between p-3 rounded-xl bg-secondary/20 border border-glass-border hover:bg-secondary/40 transition-all"
+                className="flex items-center justify-between p-3 rounded-xl bg-secondary/20 border border-glass-border hover:bg-secondary/40 hover:scale-[1.02] transition-all cursor-pointer group"
               >
-                <p className="text-sm font-medium text-foreground w-20">{day.day}</p>
+                <p className="text-sm font-medium text-foreground w-20 group-hover:text-primary transition-colors">{day.day}</p>
                 <div className="flex items-center gap-3 flex-1 justify-center">
-                  <Icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
-                  <p className="text-sm text-muted-foreground capitalize">{day.condition}</p>
+                  <Icon className="w-6 h-6 text-primary group-hover:scale-125 transition-transform" strokeWidth={1.5} />
+                  <p className="text-sm text-muted-foreground capitalize font-medium">{day.condition}</p>
                 </div>
-                <div className="flex items-center gap-3 text-sm">
+                <div className="flex items-center gap-3 text-sm group-hover:gap-4 transition-all">
                   <span className="font-semibold text-foreground">{Math.round(day.tempMax)}°</span>
                   <span className="text-muted-foreground">{Math.round(day.tempMin)}°</span>
                 </div>

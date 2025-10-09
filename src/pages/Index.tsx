@@ -264,15 +264,15 @@ const Index = () => {
             <img
               src={weatherHero}
               alt="Weather illustration"
-              className="w-64 h-64 mx-auto object-contain drop-shadow-2xl"
+              className="w-64 h-64 mx-auto object-contain drop-shadow-2xl animate-fade-in hover-scale"
             />
-            <div>
-              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <div className="animate-scale-in">
+              <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-foreground via-primary to-foreground/70 bg-clip-text text-transparent animate-fade-in">
                 Weather
               </h1>
-              <h2 className="text-4xl font-bold text-primary mb-2">ForeCasts</h2>
-              <p className="text-lg text-muted-foreground mt-4">
-                Get accurate weather forecasts for any city
+              <h2 className="text-5xl font-bold text-primary mb-2 animate-pulse-slow">ForeCasts</h2>
+              <p className="text-lg text-muted-foreground mt-4 animate-fade-in">
+                Get accurate weather forecasts for any city worldwide
               </p>
             </div>
 
@@ -284,7 +284,7 @@ const Index = () => {
               />
               <Button
                 onClick={handleGetCurrentLocation}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6 rounded-2xl shadow-lg"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 disabled={loading}
               >
                 {loading ? (

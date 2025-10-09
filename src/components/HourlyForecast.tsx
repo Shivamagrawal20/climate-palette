@@ -23,8 +23,8 @@ const getWeatherIcon = (condition: string) => {
 
 const HourlyForecast = ({ hourlyData }: HourlyForecastProps) => {
   return (
-    <div className="relative">
-      <div className="absolute inset-0 bg-glass border border-glass-border rounded-3xl backdrop-blur-glass shadow-glass" />
+    <div className="relative animate-fade-in">
+      <div className="absolute inset-0 bg-glass border border-glass-border rounded-3xl backdrop-blur-glass shadow-glass hover:shadow-2xl transition-shadow" />
       <div className="relative p-6">
         <h2 className="text-lg font-semibold mb-4 text-foreground">Hourly Forecast</h2>
         <ScrollArea className="w-full">
@@ -34,11 +34,11 @@ const HourlyForecast = ({ hourlyData }: HourlyForecastProps) => {
               return (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-20 text-center p-3 rounded-2xl bg-secondary/30 border border-glass-border hover:bg-secondary/50 transition-all"
+                  className="flex-shrink-0 w-20 text-center p-3 rounded-2xl bg-secondary/30 border border-glass-border hover:bg-secondary/50 hover:scale-110 transition-all cursor-pointer group"
                 >
-                  <p className="text-sm text-muted-foreground mb-2">{hour.time}</p>
-                  <Icon className="w-8 h-8 mx-auto mb-2 text-primary" strokeWidth={1.5} />
-                  <p className="text-lg font-semibold text-foreground">{Math.round(hour.temp)}°</p>
+                  <p className="text-sm text-muted-foreground mb-2 font-medium">{hour.time}</p>
+                  <Icon className="w-8 h-8 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform" strokeWidth={1.5} />
+                  <p className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{Math.round(hour.temp)}°</p>
                 </div>
               );
             })}

@@ -29,8 +29,8 @@ const WeatherDetails = ({
   ];
 
   return (
-    <div className="relative">
-      <div className="absolute inset-0 bg-glass border border-glass-border rounded-3xl backdrop-blur-glass shadow-glass" />
+    <div className="relative animate-fade-in">
+      <div className="absolute inset-0 bg-glass border border-glass-border rounded-3xl backdrop-blur-glass shadow-glass hover:shadow-2xl transition-shadow" />
       <div className="relative p-6">
         <h2 className="text-lg font-semibold mb-4 text-foreground">Weather Details</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -39,10 +39,10 @@ const WeatherDetails = ({
             return (
               <div
                 key={index}
-                className="flex items-center gap-4 p-4 rounded-xl bg-secondary/20 border border-glass-border"
+                className="flex items-center gap-4 p-4 rounded-xl bg-secondary/20 border border-glass-border hover:bg-secondary/30 hover:scale-105 transition-all cursor-pointer group"
               >
-                <div className="p-3 rounded-xl bg-primary/10">
-                  <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+                <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">{detail.label}</p>

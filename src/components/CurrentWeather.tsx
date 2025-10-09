@@ -24,11 +24,11 @@ const CurrentWeather = ({ temp, condition, city, country, feelsLike, humidity, w
   const Icon = getWeatherIcon(condition);
 
   return (
-    <div className="relative">
-      <div className="absolute inset-0 bg-glass border border-glass-border rounded-3xl backdrop-blur-glass shadow-glass" />
+    <div className="relative animate-fade-in hover:scale-[1.01] transition-all duration-300">
+      <div className="absolute inset-0 bg-glass border border-glass-border rounded-3xl backdrop-blur-glass shadow-glass hover:shadow-2xl transition-shadow" />
       <div className="relative p-8 text-center">
         <div className="flex items-center justify-center mb-6">
-          <Icon className="w-24 h-24 text-primary drop-shadow-glow" strokeWidth={1.5} />
+          <Icon className="w-24 h-24 text-primary drop-shadow-glow animate-pulse-slow hover-scale" strokeWidth={1.5} />
         </div>
         
         <h1 className="text-7xl font-bold mb-2 bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">

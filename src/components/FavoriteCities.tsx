@@ -45,11 +45,11 @@ const FavoriteCities = ({
                 <Badge
                   key={city}
                   variant="secondary"
-                  className="bg-secondary/50 hover:bg-secondary/70 cursor-pointer group pr-1"
+                  className="bg-secondary/50 hover:bg-secondary/70 hover:scale-105 cursor-pointer group pr-1 transition-all"
                   onClick={() => onSelectCity(city)}
                 >
-                  <Star className="w-3 h-3 mr-1 fill-primary text-primary" />
-                  {city}
+                  <Star className="w-3 h-3 mr-1 fill-primary text-primary group-hover:scale-110 transition-transform" />
+                  <span className="group-hover:text-primary transition-colors">{city}</span>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
