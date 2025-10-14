@@ -12,6 +12,9 @@ const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 const locationBtn = document.getElementById("locationBtn");
 const settingsBtn = document.getElementById("settingsBtn");
+const settingsBtnNav = document.getElementById("settingsBtnNav");
+const navToggle = document.getElementById("navToggle");
+const navMenu = document.getElementById("navMenu");
 const settingsModal = document.getElementById("settingsModal");
 const closeSettings = document.getElementById("closeSettings");
 const apiKeyInput = document.getElementById("apiKeyInput");
@@ -36,6 +39,8 @@ function initializeApp() {
     
     locationBtn.addEventListener("click", getCurrentLocation);
     settingsBtn.addEventListener("click", openSettings);
+    settingsBtnNav.addEventListener("click", openSettings);
+    navToggle.addEventListener("click", toggleMobileMenu);
     closeSettings.addEventListener("click", closeSettingsModal);
     settingsModal.addEventListener("click", (e) => {
         if (e.target === settingsModal) closeSettingsModal();
@@ -131,6 +136,31 @@ function updateTempUnitUI() {
     tempFahrenheit.classList.toggle("active", state.tempUnit === "F");
 }
 
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    navMenu.classList.toggle("active");
+    navToggle.classList.toggle("active");
+    document.body.classList.toggle("menu-open");
+}
+
+// Close mobile menu when clicking on links
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove("active");
+        navToggle.classList.remove("active");
+        document.body.classList.remove("menu-open");
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+        navMenu.classList.remove("active");
+        navToggle.classList.remove("active");
+        document.body.classList.remove("menu-open");
+    }
+});
+
 // Interactive Effects
 function addInteractiveEffects() {
     // Animate hero icon based on time of day
@@ -181,6 +211,48 @@ function addInteractiveEffects() {
             
             cloud.style.transform = `translate(${x}px, ${y}px)`;
         });
+        
+        // Parallax effect for hero particles
+        document.querySelectorAll(".particle").forEach((particle, index) => {
+            const speed = (index + 1) * 0.3;
+            const x = (mouseX - 0.5) * speed * 15;
+            const y = (mouseY - 0.5) * speed * 15;
+            
+            particle.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Add scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.querySelectorAll('.feature-card, .contact-item, .about-content, .city-card').forEach(el => {
+        observer.observe(el);
     });
 }
 

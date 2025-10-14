@@ -8,9 +8,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🌤️</span>
+                <span class="logo-text">Weather ForeCasts</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button id="settingsBtnNav" class="nav-btn">Settings</button>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
     <div id="app">
-        <!-- Welcome Screen -->
-        <div id="welcomeScreen" class="welcome-screen">
+        <!-- Hero Section -->
+        <section class="hero-section">
             <!-- Animated Background Elements -->
             <div class="background-elements">
                 <div class="floating-cloud cloud-1">☁️</div>
@@ -20,32 +41,42 @@
                 <div class="floating-rain">🌧️</div>
             </div>
             
-            <div class="welcome-content">
-                <!-- Hero Section -->
-                <div class="hero-section">
-                    <div class="hero-image-container">
-                        <div class="hero-image" id="heroWeatherIcon">🌤️</div>
-                        <div class="hero-glow"></div>
-                    </div>
-                    <h1 class="welcome-title">Weather ForeCasts</h1>
-                    <p class="welcome-subtitle">Discover weather conditions around the world with precision and style</p>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Accurate Weather Forecasts</h1>
+                    <p class="hero-subtitle">Get real-time weather data for any city worldwide with our advanced forecasting technology</p>
                     
                     <!-- Quick Stats -->
                     <div class="quick-stats">
                         <div class="stat-item">
                             <div class="stat-number">1000+</div>
-                            <div class="stat-label">Cities</div>
+                            <div class="stat-label">Cities Worldwide</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number">24/7</div>
-                            <div class="stat-label">Updates</div>
+                            <div class="stat-label">Real-time Updates</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number">99.9%</div>
-                            <div class="stat-label">Accuracy</div>
+                            <div class="stat-label">Accuracy Rate</div>
                         </div>
                     </div>
                 </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <div class="hero-image" id="heroWeatherIcon">🌤️</div>
+                        <div class="hero-glow"></div>
+                        <div class="weather-particles">
+                            <div class="particle particle-1">❄️</div>
+                            <div class="particle particle-2">💧</div>
+                            <div class="particle particle-3">⚡</div>
+                            <div class="particle particle-4">🌨️</div>
+                            <div class="particle particle-5">🌦️</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 
                 <!-- Search Section -->
                 <div class="search-section">
@@ -85,55 +116,200 @@
                         </button>
                     </div>
                 </div>
-                
-                <!-- Popular Cities -->
-                <div class="popular-cities">
-                    <h3 class="popular-title">Popular Cities</h3>
-                    <div class="cities-grid">
-                        <div class="city-card" data-city="London">
-                            <div class="city-emoji">🇬🇧</div>
-                            <div class="city-name">London</div>
-                        </div>
-                        <div class="city-card" data-city="New York">
-                            <div class="city-emoji">🇺🇸</div>
-                            <div class="city-name">New York</div>
-                        </div>
-                        <div class="city-card" data-city="Tokyo">
-                            <div class="city-emoji">🇯🇵</div>
-                            <div class="city-name">Tokyo</div>
-                        </div>
-                        <div class="city-card" data-city="Paris">
-                            <div class="city-emoji">🇫🇷</div>
-                            <div class="city-name">Paris</div>
-                        </div>
-                        <div class="city-card" data-city="Sydney">
-                            <div class="city-emoji">🇦🇺</div>
-                            <div class="city-name">Sydney</div>
-                        </div>
-                        <div class="city-card" data-city="Dubai">
-                            <div class="city-emoji">🇦🇪</div>
-                            <div class="city-name">Dubai</div>
-                        </div>
+            </div>
+        </section>
+
+        <!-- Popular Cities Section -->
+        <section class="popular-cities-section">
+            <div class="container">
+                <h2 class="section-title">Popular Cities</h2>
+                <p class="section-subtitle">Click on any city to get instant weather information</p>
+                <div class="cities-grid">
+                    <div class="city-card" data-city="London">
+                        <div class="city-emoji">🇬🇧</div>
+                        <div class="city-name">London</div>
+                        <div class="city-country">United Kingdom</div>
                     </div>
-                </div>
-                
-                <!-- Features Section -->
-                <div class="features-section">
-                    <div class="feature-item">
-                        <div class="feature-icon">🌡️</div>
-                        <div class="feature-text">Real-time Temperature</div>
+                    <div class="city-card" data-city="New York">
+                        <div class="city-emoji">🇺🇸</div>
+                        <div class="city-name">New York</div>
+                        <div class="city-country">United States</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">📊</div>
-                        <div class="feature-text">7-Day Forecast</div>
+                    <div class="city-card" data-city="Tokyo">
+                        <div class="city-emoji">🇯🇵</div>
+                        <div class="city-name">Tokyo</div>
+                        <div class="city-country">Japan</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">📍</div>
-                        <div class="feature-text">Location Based</div>
+                    <div class="city-card" data-city="Paris">
+                        <div class="city-emoji">🇫🇷</div>
+                        <div class="city-name">Paris</div>
+                        <div class="city-country">France</div>
+                    </div>
+                    <div class="city-card" data-city="Sydney">
+                        <div class="city-emoji">🇦🇺</div>
+                        <div class="city-name">Sydney</div>
+                        <div class="city-country">Australia</div>
+                    </div>
+                    <div class="city-card" data-city="Dubai">
+                        <div class="city-emoji">🇦🇪</div>
+                        <div class="city-name">Dubai</div>
+                        <div class="city-country">UAE</div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+                
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Weather ForeCasts?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌡️</div>
+                        <h3>Real-time Data</h3>
+                        <p>Get up-to-the-minute weather information with live temperature, humidity, and atmospheric conditions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>7-Day Forecast</h3>
+                        <p>Plan your week ahead with detailed 7-day weather forecasts including hourly predictions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Global Coverage</h3>
+                        <p>Access weather data for thousands of cities worldwide with precise location-based forecasts.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Instant weather updates with our optimized API and real-time data processing.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Responsive design that works perfectly on all devices - desktop, tablet, and mobile.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Secure & Private</h3>
+                        <p>Your data is safe with us. We don't store personal information and use secure connections.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">About Weather ForeCasts</h2>
+                        <p>Weather ForeCasts is a modern, user-friendly weather application that provides accurate and up-to-date weather information for cities around the world. Built with cutting-edge technology and a focus on user experience, we deliver reliable weather data that helps you plan your day, week, and activities.</p>
+                        <p>Our platform combines the power of OpenWeatherMap's comprehensive weather database with an intuitive interface, ensuring you get the information you need quickly and easily.</p>
+                        <div class="about-stats">
+                            <div class="about-stat">
+                                <span class="stat-number">10K+</span>
+                                <span class="stat-label">Daily Users</span>
+                            </div>
+                            <div class="about-stat">
+                                <span class="stat-number">200+</span>
+                                <span class="stat-label">Countries</span>
+                            </div>
+                            <div class="about-stat">
+                                <span class="stat-number">99.9%</span>
+                                <span class="stat-label">Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-visual">
+                        <div class="weather-animation">
+                            <div class="weather-icon-large">🌦️</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="contact-subtitle">Have questions or feedback? We'd love to hear from you!</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <p>support@weatherforecasts.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <h3>Website</h3>
+                        <p>www.weatherforecasts.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <h3>Support</h3>
+                        <p>24/7 Customer Support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <span class="logo-icon">🌤️</span>
+                            <span class="logo-text">Weather ForeCasts</span>
+                        </div>
+                        <p>Your trusted source for accurate weather information worldwide.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">📘</a>
+                            <a href="#" class="social-link">🐦</a>
+                            <a href="#" class="social-link">📷</a>
+                            <a href="#" class="social-link">💼</a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Features</h4>
+                        <ul>
+                            <li><a href="#">Current Weather</a></li>
+                            <li><a href="#">7-Day Forecast</a></li>
+                            <li><a href="#">Hourly Updates</a></li>
+                            <li><a href="#">Weather Alerts</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">API Documentation</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Weather ForeCasts. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
         <!-- Settings Modal -->
         <div id="settingsModal" class="modal hidden">
