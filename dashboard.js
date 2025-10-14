@@ -12,13 +12,8 @@ let state = {
 };
 
 // DOM Elements
-const welcomeScreen = document.getElementById("welcomeScreen");
-const dashboard = document.getElementById("dashboard");
-const searchInput = document.getElementById("searchInput");
+const backBtn = document.getElementById("backBtn");
 const searchInputDashboard = document.getElementById("searchInputDashboard");
-const searchBtn = document.getElementById("searchBtn");
-const locationBtn = document.getElementById("locationBtn");
-const settingsBtn = document.getElementById("settingsBtn");
 const settingsBtnDashboard = document.getElementById("settingsBtnDashboard");
 const settingsModal = document.getElementById("settingsModal");
 const closeSettings = document.getElementById("closeSettings");
@@ -37,15 +32,14 @@ function initializeApp() {
     updateTempUnitUI();
     
     // Event Listeners
-    searchBtn.addEventListener("click", () => handleSearch(searchInput.value));
-    searchInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") handleSearch(searchInput.value);
+    backBtn.addEventListener("click", () => {
+        window.location.href = "home.html";
     });
+    
     searchInputDashboard.addEventListener("keypress", (e) => {
         if (e.key === "Enter") handleSearch(searchInputDashboard.value);
     });
-    locationBtn.addEventListener("click", getCurrentLocation);
-    settingsBtn.addEventListener("click", openSettings);
+    
     settingsBtnDashboard.addEventListener("click", openSettings);
     closeSettings.addEventListener("click", closeSettingsModal);
     settingsModal.addEventListener("click", (e) => {
@@ -59,44 +53,21 @@ function initializeApp() {
         state.apiKey = e.target.value;
         localStorage.setItem("weatherApiKey", state.apiKey);
     });
+    
+    // Load weather data for the selected city
+    const selectedCity = localStorage.getItem("selectedCity");
+    if (selectedCity) {
+        fetchWeather(selectedCity);
+    } else {
+        // If no city selected, redirect to home
+        window.location.href = "home.html";
+    }
 }
 
 // Search & Location
 async function handleSearch(city) {
     if (!city.trim()) return;
     await fetchWeather(city);
-}
-
-async function getCurrentLocation() {
-    if (!navigator.geolocation) {
-        alert("Geolocation is not supported by your browser");
-        return;
-    }
-    
-    showLoading(true);
-    navigator.geolocation.getCurrentPosition(
-        async (position) => {
-            const { latitude, longitude } = position.coords;
-            const url = `${API_BASE_URL}/weather?lat=${latitude}&lon=${longitude}&appid=${state.apiKey}`;
-            
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                if (data.name) {
-                    await fetchWeather(data.name);
-                }
-            } catch (error) {
-                console.error("Error fetching location:", error);
-                alert("Failed to get weather for your location");
-            } finally {
-                showLoading(false);
-            }
-        },
-        (error) => {
-            showLoading(false);
-            alert("Unable to retrieve your location");
-        }
-    );
 }
 
 async function fetchWeather(city) {
@@ -122,7 +93,6 @@ async function fetchWeather(city) {
         state.currentCity = city;
         
         // Update UI
-        showDashboard();
         renderWeather();
         
     } catch (error) {
@@ -409,11 +379,6 @@ function updateBackground(condition) {
 }
 
 // UI Controls
-function showDashboard() {
-    welcomeScreen.classList.add("hidden");
-    dashboard.classList.remove("hidden");
-}
-
 function showLoading(show) {
     if (show) {
         loading.classList.remove("hidden");

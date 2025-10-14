@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather ForeCasts - Home</title>
+    <meta name="description" content="Get accurate weather forecasts for any city worldwide. View current weather, hourly forecasts, and 7-day predictions with detailed weather information.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Welcome Screen -->
+        <div id="welcomeScreen" class="welcome-screen">
+            <!-- Animated Background Elements -->
+            <div class="background-elements">
+                <div class="floating-cloud cloud-1">☁️</div>
+                <div class="floating-cloud cloud-2">⛅</div>
+                <div class="floating-cloud cloud-3">🌤️</div>
+                <div class="floating-sun">☀️</div>
+                <div class="floating-rain">🌧️</div>
+            </div>
+            
+            <div class="welcome-content">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-image-container">
+                        <div class="hero-image" id="heroWeatherIcon">🌤️</div>
+                        <div class="hero-glow"></div>
+                    </div>
+                    <h1 class="welcome-title">Weather ForeCasts</h1>
+                    <p class="welcome-subtitle">Discover weather conditions around the world with precision and style</p>
+                    
+                    <!-- Quick Stats -->
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Cities</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Updates</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-label">Accuracy</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Search Section -->
+                <div class="search-section">
+                    <h2 class="search-title">Where would you like to check the weather?</h2>
+                    <div class="search-container">
+                        <div class="search-bar">
+                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            <input type="text" id="searchInput" placeholder="Search for a city..." class="search-input">
+                            <button id="searchBtn" class="btn-search">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13"></path>
+                                    <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button id="locationBtn" class="btn-location">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Use My Location</span>
+                        </button>
+                        
+                        <button id="settingsBtn" class="btn-settings">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <span>Settings</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Popular Cities -->
+                <div class="popular-cities">
+                    <h3 class="popular-title">Popular Cities</h3>
+                    <div class="cities-grid">
+                        <div class="city-card" data-city="London">
+                            <div class="city-emoji">🇬🇧</div>
+                            <div class="city-name">London</div>
+                        </div>
+                        <div class="city-card" data-city="New York">
+                            <div class="city-emoji">🇺🇸</div>
+                            <div class="city-name">New York</div>
+                        </div>
+                        <div class="city-card" data-city="Tokyo">
+                            <div class="city-emoji">🇯🇵</div>
+                            <div class="city-name">Tokyo</div>
+                        </div>
+                        <div class="city-card" data-city="Paris">
+                            <div class="city-emoji">🇫🇷</div>
+                            <div class="city-name">Paris</div>
+                        </div>
+                        <div class="city-card" data-city="Sydney">
+                            <div class="city-emoji">🇦🇺</div>
+                            <div class="city-name">Sydney</div>
+                        </div>
+                        <div class="city-card" data-city="Dubai">
+                            <div class="city-emoji">🇦🇪</div>
+                            <div class="city-name">Dubai</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Features Section -->
+                <div class="features-section">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌡️</div>
+                        <div class="feature-text">Real-time Temperature</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-text">7-Day Forecast</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📍</div>
+                        <div class="feature-text">Location Based</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Settings</h2>
+                    <button id="closeSettings" class="btn-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-item">
+                        <label for="apiKeyInput">OpenWeatherMap API Key</label>
+                        <input type="text" id="apiKeyInput" placeholder="Enter your API key">
+                    </div>
+                    <div class="setting-item">
+                        <label>Temperature Unit</label>
+                        <div class="toggle-group">
+                            <button id="tempCelsius" class="toggle-btn active">°C</button>
+                            <button id="tempFahrenheit" class="toggle-btn">°F</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+</html>

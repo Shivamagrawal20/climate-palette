@@ -3,53 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather ForeCasts - Accurate Weather Data</title>
-    <meta name="description" content="Get accurate weather forecasts for any city worldwide. View current weather, hourly forecasts, and 7-day predictions with detailed weather information.">
+    <title>Weather Dashboard - Weather ForeCasts</title>
+    <meta name="description" content="View detailed weather information for your selected city with current conditions, hourly and daily forecasts.">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="app">
-        <!-- Welcome Screen -->
-        <div id="welcomeScreen" class="welcome-screen">
-            <div class="welcome-content">
-                <img src="../src/assets/weather-hero.png" alt="Weather Hero" class="hero-image">
-                <h1 class="welcome-title">Weather ForeCasts</h1>
-                <p class="welcome-subtitle">Get accurate weather data for any city</p>
-                
-                <div class="search-container">
-                    <div class="search-bar">
-                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="text" id="searchInput" placeholder="Search city..." class="search-input">
-                    </div>
-                    <button id="searchBtn" class="btn-primary">Search</button>
-                </div>
-                
-                <button id="locationBtn" class="btn-secondary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Use Current Location
-                </button>
-                
-                <button id="settingsBtn" class="btn-ghost">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                    </svg>
-                    Settings
-                </button>
-            </div>
-        </div>
-
-        <!-- Main Dashboard (hidden initially) -->
-        <div id="dashboard" class="dashboard hidden">
+        <!-- Main Dashboard -->
+        <div id="dashboard" class="dashboard">
             <div class="container">
                 <!-- Header -->
                 <div class="header">
+                    <button id="backBtn" class="btn-back">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        <span>Back to Home</span>
+                    </button>
+                    
                     <div class="search-bar-small">
                         <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="11" cy="11" r="8"></circle>
@@ -114,6 +85,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>
